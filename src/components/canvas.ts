@@ -1,16 +1,11 @@
-export class GofCanvas extends HTMLElement {
+import {LitElement, html} from 'lit-element';
+
+
+export class GofCanvas extends LitElement {
   canvas: HTMLCanvasElement;
 
-  static get observedAttributes() {
-    return [];
-  }
-
-  constructor() {
-    super();
-
-    const shadowRoot = this.attachShadow({mode: 'open'});
-
-    shadowRoot.innerHTML = `
+  render() {
+    return html`
       <style>
         :host {
           background: green;
@@ -24,15 +19,6 @@ export class GofCanvas extends HTMLElement {
       
       <canvas id="canvas"></canvas>
     `;
-
-    this.canvas = this.shadowRoot.querySelector('#canvas');
-  }
-
-  connectedCallback() {
-
-  }
-
-  attributeChangedCallback(attr, oldValue, newValue) {
   }
 
   getCanvas() {
